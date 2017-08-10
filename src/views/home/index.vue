@@ -1,16 +1,19 @@
 <template>
 	<div>
 		我是首页
-		<Tabbar></Tabbar>
+		<Tab></Tab>
 	</div>
 </template>
 <script>
-	import Tabbar from '../../components/Tabbar.vue'
+	import Tab from '../../components/Tab.vue'
 	export default {
-		name:'home',
-		components:{
-			Tabbar
-		}
+		data () {
+			return {
 
+			}
+		},
+		components:{
+			Tab
+		}
 	}
 </script>
