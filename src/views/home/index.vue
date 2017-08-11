@@ -20,15 +20,38 @@
 		    </grid>
 		</div>
 		<div>
-			<div></div>
+			<h5 class='index_tit'>良心推荐</h5>
+			<div v-for='item in getDebitList'>
+				<flexbox>
+					<flexbox-item :span="3">
+				      <div class="flex-demo">
+				      	<img :src="item.src" alt="">
+				      </div>
+					</flexbox-item>
+					<flexbox-item>
+					   <div class="flex-demo">
+					   		<div class="info_tit">
+					   			<span class='fl'>{{item.title}}</span>
+					   			<span class='fr'></span>
+					   		</div>
+					   		<p class="info_intro">{{item.intro}}</p>
+					   		<div class="info_tag">
+					   			<div></div>
+					   			<div></div>
+					   		</div>
+					   </div>
+					</flexbox-item>
+				</flexbox>
+			</div>
+			
+			
 		</div>
-
 	</div>
 </template>
 <script>
 	import { Swiper } from 'vux'
 	import { Grid, GridItem } from 'vux'
-	import {debitList} from '../../assets/js/database.js'
+	import { Flexbox, FlexboxItem } from 'vux'
 	const imgList =	[{
 		  url: 'https://www.baidu.com',
 		  img: 'https://static.vux.li/demo/1.jpg',
@@ -51,15 +74,33 @@
 		components:{
 			Swiper,
 			Grid,
-    		GridItem
+    		GridItem,
+    		Flexbox,
+    		FlexboxItem
+		},
+		computed: {
+		    getDebitList () {
+		      return this.$store.getters.getDebitList;
+		    }
+		},
+		methods:{
+		
 		},
 		mounted () {
-			console.info('dayin',this.debitList)
+			console.info('dayin',this.getDebitList)
+			//this.cardList = this.getDebitLisst;
 		}
 	}
 </script>
 <style>
 	.index-intro{
 
+	}
+	.index_tit{
+		height:20px;
+		padding:5px 0;
+	}
+	.info_tit{
+		height:15px;
 	}
 </style>

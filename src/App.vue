@@ -17,6 +17,7 @@ export default {
 
 <style lang="less">
 @import '~vux/src/styles/reset.less';
+@import 'assets/css/public.css';
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
