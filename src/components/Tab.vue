@@ -1,5 +1,5 @@
 <template>
-  <div v-show="true">
+  <div v-show="isshow">
   	<tabbar id="weui-tabbar">
         <tabbar-item selected link="/">
           <img slot="icon-active" src="../assets/imgs/indexT.png">
@@ -22,24 +22,42 @@
           <span slot="label">我的</span>
         </tabbar-item>
     </tabbar>
+    <div style='width:100%;height:53px;'></div>
   </div>
 </template>
 <script>
 import { Tabbar, TabbarItem } from 'vux'
-
+import { mapGetters } from 'vuex';
 export default {
+  data () {
+    return {
+
+    }
+  },
   name:'Tab',
   components: {
     Tabbar,
     TabbarItem
   },
+  computed: {
+    ...mapGetters([
+      'getIsShow'
+    ])
+  },
   methods:{
 
+  },
+  created () {
+    this.isshow = this.getIsShow;
+    console.info('isShow',this.getIsShow)
   }
 }
 </script>
 <style type='text/css' midia="screen">
   #weui-tabbar .weui-bar__item_on .weui-tabbar__label{
     color:#1296db;
+  }
+  #weui-tabbar{
+    position:fixed;
   }
 </style>
