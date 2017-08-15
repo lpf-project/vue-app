@@ -25,4 +25,7 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
+.vue-header {
+  background-color:#1296db !important;
+}
 </style>

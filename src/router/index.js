@@ -7,6 +7,9 @@ import mine from '../views/mine/mine.vue'
 
 import applyDetail from '../views/public/applyDetail.vue'
 
+import login from '../views/login.vue'
+import register from '../views/register.vue'
+
 Vue.use(Router)
 
 
@@ -36,9 +39,17 @@ const routes = [
         path:'/applyDetail',
         name:'applyDetail',
         component:applyDetail,
-        meta: { 
-            hideTab:true
-        }
+        meta: { requiresAuth: true }
+    }, 
+    {
+        path:'/login',
+        name:'login',
+        component:login
+    },
+    {
+        path:'/register',
+        name:'register',
+        component:register
     }
   ]
 
@@ -47,25 +58,22 @@ const router = new Router({
 	mode:'history'
 })
 
-router.beforeEach((to, from, next) => {
-  //document.title = to.meta.title
-  if (to.matched.some(r => r.meta.hideTab)) {
-     
-  }
-  else {
-    next();
-  }
 
+
+router.beforeEach((to, from, next) => {
   if(to.matched.some(r=>r.meta.requiresAuth)){
     //如果需要未登录跳转到登陆页面
-  }else{
-    next();
-      /*next({
-        path: '/login',
-        query: {redirect: to.fullPath}
-      })*/
+    if(sessionStorage.getItem('setLogin')==='true'){
+        next();
+    }else{
+      next({
+        path: '/login'
+      })
     }
+  }else{
+      next();
 
+  }
 })
 
 

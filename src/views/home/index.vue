@@ -26,9 +26,7 @@
 	</div>
 </template>
 <script>
-	import { Swiper } from 'vux'
-	import { Grid, GridItem } from 'vux'
-	import { Flexbox, FlexboxItem } from 'vux'
+	import { Swiper,Grid,GridItem,Flexbox,FlexboxItem } from 'vux'
 	import Item from '../../components/item.vue'
 	const imgList =	[{
 		  url: 'https://www.baidu.com',

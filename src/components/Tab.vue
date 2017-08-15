@@ -44,12 +44,15 @@ export default {
       'getIsShow'
     ])
   },
+/*  watch:{
+    '$route':this.$route
+  },*/
   methods:{
 
   },
   created () {
     this.isshow = this.getIsShow;
-    console.info('isShow',this.getIsShow)
+    //console.info('isShow',this.$route)
   }
 }
 </script>
